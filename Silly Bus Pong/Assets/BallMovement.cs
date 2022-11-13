@@ -33,6 +33,12 @@ public class BallMovement : MonoBehaviour
         Rigidbody2D rigidbody2D = gameObject.GetComponent<Rigidbody2D>();
         rigidbody2D.velocity = dir * speed; // Intellisense auto-completed the velocity formula!
     }
-
+    public void IncreaseHitCounter()
+    {
+        if(hitCounter * moveSpeedMultiplier <= maxMoveSpeed)
+        {
+            hitCounter++;
+        }
+    }
 }
     
