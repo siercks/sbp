@@ -8,12 +8,12 @@ public class BounceModifier : MonoBehaviour
     public BallMovement ballMovement;
     void BounceFromRacket(Collision2D c)
     {
-        Vector3 ballPosition = transform.position;
+        Vector3 ballPosition = this.transform.position;
         Vector3 racketPosition = c.gameObject.transform.position;
+        int hitCounter;
         float racketHeight = c.collider.bounds.size.y;
         float x;
-        float y = (ballPosition.y - racketPosition.y) / racketHeight; // Should this go towards top or bottom?
-        if (c.gameObject.name == "RacketPlayer1")
+        if (c.gameObject.name == "TagPlayer1") // 
         {
             x = 1;
         }
@@ -21,21 +21,25 @@ public class BounceModifier : MonoBehaviour
         {
             x = -1;
         }
-        ballMovement.IncreaseHitCounter();
-        ballMovement.MoveBall(new Vector2(x, y));
+        float y = (ballPosition.y - racketPosition.y) / racketHeight; // Should this go towards top or bottom?
+
+        this.ballMovement.IncreaseHitCounter();
+        // Debug.Log($"{hitCounter}");
+        this.ballMovement.MoveBall(new Vector2(x, y));
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.name == "RacketPlayer1" || collision.gameObject.name == "RacketPlayer2")
         {
-            BounceFromRacket(collision);
+            this.BounceFromRacket(collision);
         }
         else if (collision.gameObject.name == "WallLeft")
         {
-            
+            Debug.Log("Collision with Left Wall.");
         }
         else if (collision.gameObject.name == "WallRight")
         {
+            Debug.Log("Collision with Right Wall.");
 
         }
     }
