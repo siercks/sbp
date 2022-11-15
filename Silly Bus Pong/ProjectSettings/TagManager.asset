@@ -6,6 +6,9 @@ TagManager:
   tags:
   - TagPlayer1
   - TagPlayer2
+  - LeftWall
+  - RightWall
+  - Ball
   layers:
   - Default
   - TransparentFX

@@ -10,7 +10,7 @@ public class BounceModifier : MonoBehaviour
     {
         Vector3 ballPosition = this.transform.position;
         Vector3 racketPosition = c.gameObject.transform.position;
-        int hitCounter;
+        //int hitCounter;
         float racketHeight = c.collider.bounds.size.y;
         float x;
         if (c.gameObject.name == "TagPlayer1") // 
