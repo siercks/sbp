@@ -6,7 +6,8 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class LevelManager : MonoBehaviour
 {
-    //
+    [SerializeField] GameObject difficultySelectMenu;
+    public static bool isDifficultySelected = false;
     public LevelManager()
     {
 
@@ -18,6 +19,19 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         //Invoke("GoToMainMenu", 5f);
+        
+    }
+
+    void Update()
+    {
+        if (isDifficultySelected)
+        {
+            ShowDifficultyMenu();
+        }
+        else
+        {
+            HideDifficultyMenu();
+        }
     }
 
     // Update is called once per frame
@@ -36,5 +50,14 @@ public class LevelManager : MonoBehaviour
     public static void QuitGame()
     {
         Application.Quit();
+    }
+    public void ShowDifficultyMenu()
+    {
+        difficultySelectMenu.SetActive(true);
+
+    }
+    public void HideDifficultyMenu()
+    {
+        difficultySelectMenu.SetActive(false);
     }
 }
