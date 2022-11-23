@@ -8,6 +8,12 @@ public class PauseMenu : MonoBehaviour
     // Start is called before the first frame update
     public static bool isGamePaused = false;
     [SerializeField] GameObject ourPauseMenu;
+    BallMovement ballMovement;
+
+    void Awake()
+    {
+        ballMovement = FindObjectOfType<BallMovement>();
+    }
 
     private void Update()
     {
@@ -31,6 +37,13 @@ public class PauseMenu : MonoBehaviour
     }
     public void ResumeGame()
     {
+        ourPauseMenu.SetActive(false);
+        Time.timeScale = 1f;
+        isGamePaused = false;
+    }
+    public void ResetDeadBall()
+    {
+        ballMovement.PositionBall();
         ourPauseMenu.SetActive(false);
         Time.timeScale = 1f;
         isGamePaused = false;

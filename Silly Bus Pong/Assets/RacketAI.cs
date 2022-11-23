@@ -6,7 +6,6 @@ public class RacketAI : MonoBehaviour
 {
     public float racketMoveSpeed;
     public GameObject ball;
-    ScoreManager scoreManager;
     private void Update()
     {
         //
@@ -14,19 +13,19 @@ public class RacketAI : MonoBehaviour
         {
             if (transform.position.y < ball.transform.position.y)
             {
-                GetComponent<Rigidbody2D>().velocity = new Vector2(0, 1) * racketMoveSpeed;
+                GetComponent<Rigidbody2D>().velocity = new Vector2(0, 1) * racketMoveSpeed ;
             }
             else
             {
-                GetComponent<Rigidbody2D>().velocity = new Vector2(0, -1) * racketMoveSpeed;
+                GetComponent<Rigidbody2D>().velocity = new Vector2(0, -1) * racketMoveSpeed ;
 
             }
         }
         else
         {
             int yRandom = Random.Range(0, 10);
-            GetComponent<Rigidbody2D>().velocity = new Vector2(0, yRandom) * racketMoveSpeed;
-            // Don't need an x value because locked into x-axis.
+            //GetComponent<Rigidbody2D>().velocity = new Vector2(0, yRandom) * racketMoveSpeed;
+            //// Don't need an x value because locked into x-axis.
         }
         //if (scoreManager.GoalPlayer1() = true)
         //{

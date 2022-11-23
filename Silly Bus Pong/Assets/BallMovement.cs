@@ -29,7 +29,6 @@ public class BallMovement : MonoBehaviour
             yFun = Random.Range(-1, -7);
         }
         yield return new WaitForSeconds(2); // Whenever start game is called, we wait two seconds.
-        //Debug.Log($"xFun is {xFun}, yFun is {yFun}, hitCounter is {hitCounter}");
         if (isStartingPlayer1)
         {
             if (Random.Range(0, 1) == 0)
