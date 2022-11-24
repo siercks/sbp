@@ -54,10 +54,11 @@ public class LevelManager : MonoBehaviour
     public void ShowDifficultyMenu()
     {
         difficultySelectMenu.SetActive(true);
-
+        isDifficultySelected = true;
     }
     public void HideDifficultyMenu()
     {
         difficultySelectMenu.SetActive(false);
+        isDifficultySelected = false;
     }
 }
