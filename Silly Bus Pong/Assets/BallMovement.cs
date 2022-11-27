@@ -35,16 +35,13 @@ public class BallMovement : MonoBehaviour
             {
                 yFun = Random.Range(1, 7);
                 MoveBall(new Vector2(-xFun, yFun));
-                Debug.Log($"xFun is {xFun}, yFun is {yFun}, hitCounter is {hitCounter}");
-
-
+                //Debug.Log($"xFun is {xFun}, yFun is {yFun}, hitCounter is {hitCounter}");
             }
             else if (Random.Range(0, 1) == 1)
             {
                 yFun = Random.Range(-1, -7);
                 MoveBall(new Vector2(-xFun, yFun));
-                Debug.Log($"xFun is {xFun}, yFun is {yFun}, hitCounter is {hitCounter}");
-
+                //Debug.Log($"xFun is {xFun}, yFun is {yFun}, hitCounter is {hitCounter}");
             }
         }
         else
@@ -53,15 +50,14 @@ public class BallMovement : MonoBehaviour
             {
                 yFun = Random.Range(1, 7);
                 MoveBall(new Vector2(xFun, yFun));
-                Debug.Log($"xFun is {xFun}, yFun is {yFun}, hitCounter is {hitCounter}");
+                //Debug.Log($"xFun is {xFun}, yFun is {yFun}, hitCounter is {hitCounter}");
 
             }
             else if (Random.Range(0, 1) == 1)
             {
                 yFun = Random.Range(-1, -7);
                 MoveBall(new Vector2(xFun, yFun));
-                Debug.Log($"xFun is {xFun}, yFun is {yFun}, hitCounter is {hitCounter}");
-
+                //Debug.Log($"xFun is {xFun}, yFun is {yFun}, /*hitCounter*/ is {hitCounter}");
             }
             //MoveBall(new Vector2(xFun, yFun));
         }
@@ -87,7 +83,8 @@ public class BallMovement : MonoBehaviour
         if((this.hitCounter * this.moveSpeedMultiplier) <= this.maxMoveSpeed)
         {
             this.hitCounter++;
-            Debug.Log($"{hitCounter}");
+            //Debug.Log($"{hitCounter}");
+            // May come back to this at some point. Right now it's non-functional.
         }
     }
     public void RNGstart() // Can I better incorporate this somewhere?

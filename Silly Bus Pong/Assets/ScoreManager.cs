@@ -49,16 +49,12 @@ public class ScoreManager : MonoBehaviour
     {
         scorePlayer1 = scorePlayer1 + 1;
         Mathf.Clamp(scorePlayer1, 0, 7);
-        // GetPlayer1Score(); // Put this in while troubleshooting score. Ultimately, not needed.
-        Debug.Log($"Point for Player 1! Player 1: {scorePlayer1}, Player 2: {scorePlayer2}");
         ballMovement.PositionBall();
     }
     public void GoalPlayer2()
     {
         scorePlayer2 += 1;
         Mathf.Clamp(scorePlayer2, 0, 7);
-        //GetPlayer2Score();
-        Debug.Log($"Point for Player 2! Player 1: {scorePlayer1}, Player 2: {scorePlayer2}");
         ballMovement.PositionBall();
     }
     public void EndGame() // This checks win conditions. It works as of 11/15.
