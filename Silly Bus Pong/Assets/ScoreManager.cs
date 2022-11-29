@@ -13,6 +13,7 @@ public class ScoreManager : MonoBehaviour
     int scorePlayer2;
     BallMovement ballMovement;
     LevelManager levelManager;
+    RacketAI racketAI;
     // Start is called before the first frame update
     void Awake()
     {
@@ -69,7 +70,6 @@ public class ScoreManager : MonoBehaviour
         {
             Debug.Log("Game over! Player 1 wins!");
             SceneManager.LoadScene("GameOver");
-
         }
         else
         {

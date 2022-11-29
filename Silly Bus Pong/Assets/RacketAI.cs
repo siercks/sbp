@@ -4,21 +4,62 @@ using UnityEngine;
 
 public class RacketAI : MonoBehaviour
 {
-    public float racketMoveSpeed;
+    public int racketMoveSpeed = 0; 
+    //PlayerPrefs.SetFloat("racketMoveSpeed", 0f);
     public GameObject ball;
-    private void Update()
+    Player2Script player2Script;
+    LevelManager levelManager;
+
+    private void Awake()
     {
-        //
+        //player2Script = FindObjectOfType<Player2Script>();
+        // Don't need to even touch the above script, as the Racket and Racket AI don't even look at it.
+        //levelManager = FindObjectOfType<LevelManager>();
+    }
+    public void DifficultyUpdateEasy()
+    {
+        racketMoveSpeed = 33;
+        //Debug.Log($"Easy mode, racketMoveSpeed: {racketMoveSpeed}");
+        GetRacketSpeed((int)racketMoveSpeed);
+        return;
+        // Do I need a return here?
+        //player2Script.UpdateSpeed(50);
+    }
+
+    public void DifficultyUpdateMedium()
+    {
+        racketMoveSpeed = 44;
+        //Debug.Log($"Medium mode, racketMoveSpeed: {racketMoveSpeed}");
+        GetRacketSpeed((int)racketMoveSpeed);
+        return;
+    }
+    public void DifficultyUpdateHard()
+    {
+        racketMoveSpeed = 0;
+        //Debug.Log($"Hard mode, racketMoveSpeed: {racketMoveSpeed}");
+        GetRacketSpeed((int)racketMoveSpeed);
+        return;
+    }
+    public int GetRacketSpeed(int value)
+    {
+        PlayerPrefs.SetInt("Racket Move Speed", racketMoveSpeed);
+        Debug.Log($"racketMoveSpeed: {racketMoveSpeed}");
+        Update();
+        return racketMoveSpeed;
+    }
+    void Update() // removed private
+    {
         if (Mathf.Abs(transform.position.y - ball.transform.position.y) < 50)
         {
             if (transform.position.y < ball.transform.position.y)
             {
                 GetComponent<Rigidbody2D>().velocity = new Vector2(0, 1) * racketMoveSpeed ;
+                Debug.Log("Testing speed:" + racketMoveSpeed);
             }
             else
             {
                 GetComponent<Rigidbody2D>().velocity = new Vector2(0, -1) * racketMoveSpeed ;
-
+                Debug.Log("Testing speed:" + racketMoveSpeed);
             }
         }
         else
@@ -27,9 +68,5 @@ public class RacketAI : MonoBehaviour
             //GetComponent<Rigidbody2D>().velocity = new Vector2(0, yRandom) * racketMoveSpeed;
             //// Don't need an x value because locked into x-axis.
         }
-        //if (scoreManager.GoalPlayer1() = true)
-        //{
-        // Trying to figure out how to reset racketAI to middle of screen so it stops glitching out.
-        //}
     }
 }

@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,13 +9,16 @@ public class LevelManager : MonoBehaviour
 {
     [SerializeField] GameObject difficultySelectMenu;
     public static bool isDifficultySelected = false;
+    RacketAI racketAI;
+    public int difficultyNumber;
     public LevelManager()
     {
 
     }
     private void Awake()
     {
-        //
+        racketAI = FindObjectOfType<RacketAI>();
+
     }
     void Start()
     {
@@ -60,5 +64,31 @@ public class LevelManager : MonoBehaviour
     {
         difficultySelectMenu.SetActive(false);
         isDifficultySelected = false;
+    }
+    public void DifficultySelections()
+    {
+        var difficultyNumber = 0;
+        if (isDifficultySelected == true)
+        {
+            switch (difficultyNumber)
+            {
+                case 0:
+                    //Easy
+                    racketAI.DifficultyUpdateEasy();
+                    SceneManager.LoadScene("GameCPU");
+                    break;
+                 case 1:
+                    //Medium
+                    racketAI.DifficultyUpdateMedium();
+                    SceneManager.LoadScene("GameCPU");
+                    break; 
+                case 2:
+                    //Hard
+                    racketAI.DifficultyUpdateHard();
+                    SceneManager.LoadScene("GameCPU");
+                    break;
+
+            }
+        }
     }
 }
