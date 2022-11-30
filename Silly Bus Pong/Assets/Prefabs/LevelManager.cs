@@ -65,30 +65,30 @@ public class LevelManager : MonoBehaviour
         difficultySelectMenu.SetActive(false);
         isDifficultySelected = false;
     }
-    public void DifficultySelections()
-    {
-        var difficultyNumber = 0;
-        if (isDifficultySelected == true)
-        {
-            switch (difficultyNumber)
-            {
-                case 0:
-                    //Easy
-                    racketAI.DifficultyUpdateEasy();
-                    SceneManager.LoadScene("GameCPU");
-                    break;
-                 case 1:
-                    //Medium
-                    racketAI.DifficultyUpdateMedium();
-                    SceneManager.LoadScene("GameCPU");
-                    break; 
-                case 2:
-                    //Hard
-                    racketAI.DifficultyUpdateHard();
-                    SceneManager.LoadScene("GameCPU");
-                    break;
-
-            }
-        }
-    }
+    //public void DifficultySelections()
+    //{
+    //    //var difficultyNumber = 0;
+    //    if (isDifficultySelected == true)
+    //    {
+    //        switch (difficultyNumber)
+    //        {
+    //            case 0:
+    //                //Easy
+    //                SceneManager.LoadScene("GameCPU");
+    //                //racketAI.DifficultyUpdateEasy();
+    //                break;
+    //             case 1:
+    //                //Medium
+    //                Debug.Log($"Medium mode");
+    //                racketAI.DifficultyUpdateMedium();
+    //                SceneManager.LoadScene("GameCPU");
+    //                break; 
+    //            case 2:
+    //                //Hard
+    //                racketAI.DifficultyUpdateHard();
+    //                SceneManager.LoadScene("GameCPU");
+    //                break;
+    //        }
+    //    }
+    //}
 }

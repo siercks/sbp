@@ -31,8 +31,6 @@ public class UIDisplay : MonoBehaviour
         try
         {
             scoreTextPlayer1.text = scoreManager.GetPlayer1Score().ToString();
-            //scoreTextPlayer1.text = "7";
-            // This works, so it's the second half of the statement where something is wrong.
             scoreTextPlayer2.text = scoreManager.GetPlayer2Score().ToString();
         }
         catch (System.Exception e)
