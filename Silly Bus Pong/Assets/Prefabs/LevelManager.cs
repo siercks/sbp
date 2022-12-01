@@ -10,7 +10,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] GameObject difficultySelectMenu;
     public static bool isDifficultySelected = false;
     RacketAI racketAI;
-    public int difficultyNumber;
+    public static int difficultyNumber;
     public LevelManager()
     {
 
@@ -18,12 +18,10 @@ public class LevelManager : MonoBehaviour
     private void Awake()
     {
         racketAI = FindObjectOfType<RacketAI>();
-
     }
     void Start()
     {
         //Invoke("GoToMainMenu", 5f);
-        
     }
 
     void Update()
@@ -37,8 +35,6 @@ public class LevelManager : MonoBehaviour
             HideDifficultyMenu();
         }
     }
-
-    // Update is called once per frame
     public static void LoadPVP() 
     {
         SceneManager.LoadScene("GamePVP");
@@ -55,6 +51,10 @@ public class LevelManager : MonoBehaviour
     {
         Application.Quit();
     }
+    public static void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
     public void ShowDifficultyMenu()
     {
         difficultySelectMenu.SetActive(true);
@@ -65,30 +65,4 @@ public class LevelManager : MonoBehaviour
         difficultySelectMenu.SetActive(false);
         isDifficultySelected = false;
     }
-    //public void DifficultySelections()
-    //{
-    //    //var difficultyNumber = 0;
-    //    if (isDifficultySelected == true)
-    //    {
-    //        switch (difficultyNumber)
-    //        {
-    //            case 0:
-    //                //Easy
-    //                SceneManager.LoadScene("GameCPU");
-    //                //racketAI.DifficultyUpdateEasy();
-    //                break;
-    //             case 1:
-    //                //Medium
-    //                Debug.Log($"Medium mode");
-    //                racketAI.DifficultyUpdateMedium();
-    //                SceneManager.LoadScene("GameCPU");
-    //                break; 
-    //            case 2:
-    //                //Hard
-    //                racketAI.DifficultyUpdateHard();
-    //                SceneManager.LoadScene("GameCPU");
-    //                break;
-    //        }
-    //    }
-    //}
 }
