@@ -7,14 +7,10 @@ using UnityEngine.SceneManagement;
 
 public class ScoreManager : MonoBehaviour
 {
-    //[SerializeField] TextMeshProUGUI scoreTextPlayer1;
     int scorePlayer1;
-    //[SerializeField] TextMeshProUGUI scoreTextPlayer2;
     int scorePlayer2;
     BallMovement ballMovement;
     LevelManager levelManager;
-    RacketAI racketAI;
-    // Start is called before the first frame update
     void Awake()
     {
         ballMovement = FindObjectOfType<BallMovement>();

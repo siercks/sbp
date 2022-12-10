@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class Player1Script : MonoBehaviour
 {
-    //public float playerMovementSpeed;
     [SerializeField] float playerMoveSpeed = 200f;
 
-    public void Update()
+    void Update()
     {
-        float moveAmount = Input.GetAxisRaw("Vertical1"); // Needed that 1 in there.
-        GetComponent<Rigidbody2D>().velocity = new Vector2(0, moveAmount) * playerMoveSpeed;
-
-
+        //float moveAmount = Input.GetAxisRaw("Vertical1") * playerMoveSpeed; // Needed that 1 in there.
+        //GetComponent<Rigidbody2D>().velocity = new Vector2(0, moveAmount);
+        DeltaTimeUpdate();
     }
-
+    void DeltaTimeUpdate()
+    {
+        float moveAmount = Input.GetAxisRaw("Vertical1") * playerMoveSpeed; // Needed that 1 in there.
+        GetComponent<Rigidbody2D>().velocity = new Vector2(0, moveAmount);
+    }
 }

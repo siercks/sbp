@@ -43,10 +43,6 @@ public class LevelManager : MonoBehaviour
     {
         SceneManager.LoadScene("GameCPU");
     }
-    public static void GameOver()
-    {
-        //SceneManager.LoadScene("GameOver");
-    }
     public static void QuitGame()
     {
         Application.Quit();

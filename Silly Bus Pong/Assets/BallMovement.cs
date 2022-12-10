@@ -35,13 +35,11 @@ public class BallMovement : MonoBehaviour
             {
                 yFun = Random.Range(1, 7);
                 MoveBall(new Vector2(-xFun, yFun));
-                //Debug.Log($"xFun is {xFun}, yFun is {yFun}, hitCounter is {hitCounter}");
             }
             else if (Random.Range(0, 1) == 1)
             {
                 yFun = Random.Range(-1, -7);
                 MoveBall(new Vector2(-xFun, yFun));
-                //Debug.Log($"xFun is {xFun}, yFun is {yFun}, hitCounter is {hitCounter}");
             }
         }
         else
@@ -50,31 +48,26 @@ public class BallMovement : MonoBehaviour
             {
                 yFun = Random.Range(1, 7);
                 MoveBall(new Vector2(xFun, yFun));
-                //Debug.Log($"xFun is {xFun}, yFun is {yFun}, hitCounter is {hitCounter}");
 
             }
             else if (Random.Range(0, 1) == 1)
             {
                 yFun = Random.Range(-1, -7);
                 MoveBall(new Vector2(xFun, yFun));
-                //Debug.Log($"xFun is {xFun}, yFun is {yFun}, /*hitCounter*/ is {hitCounter}");
             }
-            //MoveBall(new Vector2(xFun, yFun));
         }
     } 
     public void PositionBall()
     {
         GetComponent<Rigidbody2D>().velocity = new Vector3(0, 0, 0);
         gameObject.transform.position = new Vector3(0f, 0f, 0f);
-        //StartBall();
-        //StartCoroutine(StartBall());
         StopAllCoroutines();
         StartCoroutine(StartBall()); // Probably a better way to restart this ball. 
     }
     public void MoveBall(Vector2 dir)
     {
         dir = dir.normalized;
-        float speed = this.moveSpeed + (this.moveSpeedMultiplier * this.hitCounter);
+        float speed = this.moveSpeed + (this.moveSpeedMultiplier * this.hitCounter * Time.deltaTime);
         Rigidbody2D rigidbody2D = this.gameObject.GetComponent<Rigidbody2D>();
         rigidbody2D.velocity = dir * speed; // Intellisense auto-completed the velocity formula!
     }
